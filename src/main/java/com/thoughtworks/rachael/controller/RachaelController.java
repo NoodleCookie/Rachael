@@ -18,4 +18,10 @@ public class RachaelController {
     public String callName(@PathVariable("name") String name) {
         return name;
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping()
+    public String age(@RequestParam("age") String age) {
+        return age;
+    }
 }
