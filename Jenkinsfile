@@ -1,8 +1,18 @@
 pipeline {
   agent any
     stages {
-        stage('checkout') {
-            git 'https://github.com/NoodleCookie/Rachael.git'
+        stage('hello') {
+            steps{
+                script{
+                    println('hello')
+                }
+            }
         }
+
+        stage('checkout') {
+                    steps{
+                                git 'https://github.com/NoodleCookie/Rachael.git'
+                    }
+                }
     }
 }
