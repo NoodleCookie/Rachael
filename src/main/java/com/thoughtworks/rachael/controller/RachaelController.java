@@ -1,10 +1,7 @@
 package com.thoughtworks.rachael.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/rachael")
@@ -14,5 +11,11 @@ public class RachaelController {
     @GetMapping()
     public String rachael() {
         return "rachael";
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{name}")
+    public String callName(@PathVariable("name") String name) {
+        return name;
     }
 }
