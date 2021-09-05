@@ -39,7 +39,7 @@ pipeline {
                         dir("${env.WORKSPACE}/project") {
                             sh "java -jar ./target/Rachael-0.0.1-SNAPSHOT.jar nohup &"
                         }
-                        println('deploy!')
+                        sh "rm -rf ${env.WORKSPACE}/project"
                     }
                 }
             }
