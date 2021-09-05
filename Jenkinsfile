@@ -38,8 +38,7 @@ pipeline {
                             script {
                                 dir("${env.WORKSPACE}/project") {
                                     sh "mvn package"
-                                    sh "mv ./target/Rachael-0.0.1-SNAPSHOT.jar ${env.WORKSPACE}/jars"
-                                    sh "rm -rf ${env.WORKSPACE}/project"
+                                    sh "mv ./target/Rachael-0.0.1-SNAPSHOT.jar ${env.WORKSPACE}/jars/"
                                 }
                             }
                         }
@@ -50,6 +49,7 @@ pipeline {
                     script {
                         dir("${env.WORKSPACE}/jars") {
                             sh "java -jar Rachael-0.0.1-SNAPSHOT.jar nohup &"
+                            sh "rm -rf ${env.WORKSPACE}/project"
                         }
                     }
                 }
