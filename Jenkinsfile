@@ -34,14 +34,25 @@ pipeline {
                         }
                     }
 
-            stage("Deploy") {
-                steps {
-                    script {
-                        dir("${env.WORKSPACE}/project") {
-                            sh "java -jar ./target/Rachael-0.0.1-SNAPSHOT.jar nohup &"
-                        }
-                    }
-                }
-            }
+//             stage("Deploy") {
+//                 steps {
+//                     script {
+//                         dir("${env.WORKSPACE}/project") {
+//                             sh "java -jar ./target/Rachael-0.0.1-SNAPSHOT.jar nohup &"
+//                         }
+//                     }
+//                 }
+//             }
+
+            stage("Build Image and Publish") {
+                 steps {
+                     script {
+                         dir("${env.WORKSPACE}/project") {
+                             sh "docker build -t rachael:v1 ."
+                             sh "docker images"
+                         }
+                     }
+                 }
+             }
     }
 }
