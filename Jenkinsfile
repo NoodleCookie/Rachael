@@ -14,7 +14,7 @@ pipeline {
                 steps{
                     script{
                         dir("${env.WORKSPACE}/project"){
-                            sh "maven compile"
+                            sh "mvn compile"
                         }
                     }
                 }
@@ -24,7 +24,7 @@ pipeline {
                         steps {
                             script {
                                 dir("${env.WORKSPACE}/project") {
-                                    sh "maven test"
+                                    sh "mvn test"
                                 }
                             }
                         }
@@ -34,7 +34,7 @@ pipeline {
                         steps {
                             script {
                                 dir("${env.WORKSPACE}/project") {
-                                    sh "maven package"
+                                    sh "mvn package"
                                     sh "mv ./target/Rachael-0.0.1-SNAPSHOT.jar ${env.WORKSPACE}/jars"
                                     sh "rm -rf ${env.WORKSPACE}/project"
                                 }
