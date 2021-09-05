@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('pull code') {
             steps{
+                sh "rm -rf ${env.WORKSPACE}/project"
                 sh "mkdir ${env.WORKSPACE}/project"
                 dir("${env.WORKSPACE}/project") {
                     git 'https://gitee.com/sakai-izumi/Rachael.git'
@@ -39,7 +40,6 @@ pipeline {
                         dir("${env.WORKSPACE}/project") {
                             sh "java -jar ./target/Rachael-0.0.1-SNAPSHOT.jar nohup &"
                         }
-                        sh "rm -rf ${env.WORKSPACE}/project"
                     }
                 }
             }
