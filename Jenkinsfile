@@ -4,7 +4,7 @@ pipeline {
     maven "M3"
   }
     stages {
-        stage('pull code') {
+        stage('Pull Code') {
             steps{
                 sh "rm -rf ${env.WORKSPACE}/project"
                 sh "mkdir ${env.WORKSPACE}/project"
@@ -14,7 +14,7 @@ pipeline {
                }
             }
 
-        stage('compile'){
+        stage('Compile'){
                 steps{
                     script{
                         dir("${env.WORKSPACE}/project"){
@@ -34,7 +34,7 @@ pipeline {
                         }
                     }
 
-            stage("deploy") {
+            stage("Deploy") {
                 steps {
                     script {
                         dir("${env.WORKSPACE}/project") {
