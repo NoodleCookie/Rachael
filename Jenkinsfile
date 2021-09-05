@@ -48,6 +48,7 @@ pipeline {
                  steps {
                      script {
                          dir("${env.WORKSPACE}/project") {
+                             sh "service docker start"
                              sh "docker build -t rachael:v1 ."
                              sh "docker images"
                          }
