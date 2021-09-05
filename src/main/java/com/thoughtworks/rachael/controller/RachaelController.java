@@ -20,7 +20,7 @@ public class RachaelController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping()
+    @GetMapping("/details")
     public String age(@RequestParam("age") String age) {
         return age;
     }

@@ -1,0 +1,18 @@
+server:
+  port: 6666
+
+spring:
+  application:
+    name: Rachael
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 8.140.110.215:8848
+        namespace: cf561aa0-6b73-4f18-a606-ad93889143d7
+        group: DEV_GROUP
+        prefix: Rachael
+      discovery:
+        server-addr: 8.140.110.215:8848
+        namespace: cf561aa0-6b73-4f18-a606-ad93889143d7
+        group: DEV_GROUP
