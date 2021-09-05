@@ -17,27 +17,17 @@ pipeline {
                 steps{
                     script{
                         dir("${env.WORKSPACE}/project"){
-                            sh "mvn compile"
+                            sh "mvn clean compile"
                         }
                     }
                 }
             }
 
-            stage('Test') {
-                        steps {
-                            script {
-                                dir("${env.WORKSPACE}/project") {
-                                    sh "mvn test"
-                                }
-                            }
-                        }
-                    }
-
             stage("Build Jar") {
                         steps {
                             script {
                                 dir("${env.WORKSPACE}/project") {
-                                    sh "mvn package"
+                                    sh "mvn clean package"
                                 }
                             }
                         }
