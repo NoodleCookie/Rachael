@@ -14,7 +14,9 @@ pipeline {
                 steps{
                     script{
                         dir("${env.WORKSPACE}/project"){
-                            sh "mvn compile"
+                            script{
+                                mvn compile
+                            }
                         }
                     }
                 }
