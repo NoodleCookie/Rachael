@@ -11,7 +11,6 @@ pipeline {
             }
 
         stage('compile'){
-            stage{
                 steps{
                     script{
                         dir("${env.WORKSPACE}/project"){
@@ -20,7 +19,6 @@ pipeline {
                     }
                 }
             }
-        }
 
             stage('Test') {
                         steps {
