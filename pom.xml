@@ -66,13 +66,21 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<excludes>
-						<source>11</source>
-						<target>11</target>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<target>10</target>
+					<source>10</source>
+					<release>10</release>
 				</configuration>
 			</plugin>
 			<plugin><!--编译跳过测试文件检查的生命周期-->
