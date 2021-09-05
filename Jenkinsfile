@@ -8,7 +8,7 @@ pipeline {
             steps{
                 sh "mkdir ${env.WORKSPACE}/project"
                 dir("${env.WORKSPACE}/project") {
-                    git 'https://github.com/NoodleCookie/Rachael.git'
+                    git 'https://gitee.com/sakai-izumi/Rachael.git'
                     }
                }
             }
