@@ -48,7 +48,7 @@ pipeline {
                      script {
                         withCredentials([usernamePassword(credentialsId: 'harbor', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                             sh "docker login -u ${USERNAME} -p ${PASSWORD} 8.140.110.215:85"
-                            sh "docker push 8.140.110.215/rachael/rachael"
+                            sh "docker push 8.140.110.215:85/rachael/rachael"
                             sh "echo 镜像上传成功"
                         }
                      }
