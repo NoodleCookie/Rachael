@@ -34,23 +34,13 @@ pipeline {
                         }
                     }
 
-//             stage("Deploy") {
-//                 steps {
-//                     script {
-//                         dir("${env.WORKSPACE}/project") {
-//                             sh "java -jar ./target/Rachael-0.0.1-SNAPSHOT.jar nohup &"
-//                         }
-//                     }
-//                 }
-//             }
-
             stage("Build Image and Publish") {
                  steps {
                      script {
                          dir("${env.WORKSPACE}/project") {
 //                              sh "docker images | grep rachael | awk '{print $3}' | xargs docker rmi -f"
                              sh "docker build -t rachael:v1 ."
-                             sh "docker tag rachael:v1 8.140.110.215/rachael/rachael"
+                             sh "docker tag rachael:v1 8.140.110.215:85/rachael/rachael"
                              sh "docker images"
                          }
                      }
