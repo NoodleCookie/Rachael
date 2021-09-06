@@ -48,10 +48,21 @@ pipeline {
                  steps {
                      script {
                          dir("${env.WORKSPACE}/project") {
+                             sh "docker images | grep rachael | awk '{print $3}' | xargs docker rmi -f "
                              sh "docker build -t rachael:v1 ."
+                             sh "docker tag rachael:v1 8.140.110.215/rachael/rachael"
                              sh "docker images"
                          }
                      }
+
+                     script {
+                        withCredentials([usernamePassword(credentialsId: 'harbor', passwordVariable: 'Qwer3936134', usernameVariable: 'Izumi')]) {
+                            sh "docker login -u Izumi -p Qwer3936134 8.140.110.215:85"
+                            sh "docker push 8.140.110.215/rachael/rachael"
+                            sh "echo 镜像上传成功"
+                        }
+                     }
+
                  }
              }
     }
